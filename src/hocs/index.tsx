@@ -7,6 +7,7 @@ import {
 import { Alert, alertStyles } from '@gear-js/ui';
 import { ComponentType } from 'react';
 import { BrowserRouter } from 'react-router-dom';
+import { IPFSProvider } from 'context';
 import { ADDRESS } from 'consts';
 
 function ApiProvider({ children }: ProviderProps) {
@@ -21,7 +22,7 @@ function AlertProvider({ children }: ProviderProps) {
   );
 }
 
-const providers = [BrowserRouter, AlertProvider, ApiProvider, AccountProvider];
+const providers = [BrowserRouter, AlertProvider, IPFSProvider, ApiProvider, AccountProvider];
 
 function withProviders(Component: ComponentType) {
   return () => providers.reduceRight((children, Provider) => <Provider>{children}</Provider>, <Component />);
